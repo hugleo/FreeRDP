@@ -496,7 +496,7 @@ static BOOL xf_event_FocusIn(xfContext* xfc, XEvent* event, BOOL app)
 	if (app)
 	{
 		xfAppWindow* appWindow;
-		xf_rail_send_activate(xfc, event->xany.window, TRUE);
+		/*xf_rail_send_activate(xfc, event->xany.window, TRUE);*/
 		appWindow = xf_AppWindowFromX11Window(xfc, event->xany.window);
 
 		/* Update the server with any window changes that occurred while the window was not focused. */
@@ -522,8 +522,8 @@ static BOOL xf_event_FocusOut(xfContext* xfc, XEvent* event, BOOL app)
 	xf_keyboard_release_all_keypress(xfc);
 	xf_keyboard_clear(xfc);
 
-	if (app)
-		xf_rail_send_activate(xfc, event->xany.window, FALSE);
+	/*if (app)
+		xf_rail_send_activate(xfc, event->xany.window, FALSE);*/
 
 	return TRUE;
 }
